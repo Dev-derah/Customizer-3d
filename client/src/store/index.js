@@ -3,6 +3,7 @@ const state = proxy({
     intro:true,
     color:'#EFBD48',
     IsLogoTexture:true,
+    downloadShirt:true,
     logoDecal:'./threejs.png',
     fullDecal:'./threejs.png'
 })
