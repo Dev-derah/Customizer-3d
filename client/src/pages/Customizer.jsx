@@ -26,7 +26,7 @@ const Customizer = () => {
 
   const [activeEditorTab, setActiveEditorTab] = useState("");
   const [activeFilterTab, setActiveFilterTab] = useState({
-    logoShirt: true,
+    logoShirt: false,
     stylishShirt: false,
     downloadShirt:false,
   });
@@ -35,7 +35,7 @@ const Customizer = () => {
   const generateTabContent = () => {
     switch (activeEditorTab) {
       case "colorpicker":
-        return <ColorPicker />;
+        return <ColorPicker  />;
       case "filepicker":
         return <FilePicker file={file} setFile={setFile} readFile={readFile} />;
       case "aipicker":
