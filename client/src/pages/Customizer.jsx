@@ -4,7 +4,6 @@ import { useSnapshot } from "valtio";
 
 import config from "../config/config";
 import state from "../store";
-import { download } from "../assets";
 import { downloadCanvasToImage, reader } from "../config/helpers";
 import { EditorTabs, FilterTabs, DecalTypes } from "../config/constants";
 import { fadeAnimation, slideAnimation } from "../config/motion";
@@ -14,6 +13,7 @@ import {
   CustomButton,
   FilePicker,
   Tab,
+  TextLogo,
 } from "../components";
 
 const Customizer = () => {
@@ -26,9 +26,10 @@ const Customizer = () => {
 
   const [activeEditorTab, setActiveEditorTab] = useState("");
   const [activeFilterTab, setActiveFilterTab] = useState({
-    logoShirt: true,
+    logoShirt: false,
     stylishShirt: false,
-    downloadShirt:false,
+    downloadShirt: false,
+    textShirt:false
   });
 
   // show tab content depending on the activeTab
@@ -47,6 +48,8 @@ const Customizer = () => {
             handleSubmit={handleSubmit}
           />
         );
+      case "textLogo":
+        return <TextLogo />;
       default:
         return null;
     }
@@ -98,6 +101,11 @@ const Customizer = () => {
         break;
       case "stylishShirt":
         state.isFullTexture = !activeFilterTab[tabName];
+                console.log(state.IsFullTexture);
+        break;
+      case "textShirt":
+        state.isTextTexture = !activeFilterTab[tabName];
+        console.log(state.IsLogoTexture)
         break;
       case "downloadShirt":
         setActiveFilterTab({
@@ -107,7 +115,7 @@ const Customizer = () => {
         downloadCanvasToImage();
         break;
       default:
-       state.isFullTexture = activeFilterTab[tabName];
+        state.isFullTexture = activeFilterTab[tabName];
         state.isFullTexture = false;
         break;
     }
