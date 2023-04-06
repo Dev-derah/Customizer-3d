@@ -32,3 +32,39 @@ export const getContrastingColor = (color) => {
   // Return black or white depending on the brightness
   return brightness > 128 ? "black" : "white";
 };
+
+
+
+  // export const convertToImage = ({Texlogo}) => {
+  //   const node = document.getElementById("text");
+  //   htmlToImage
+  //     .toPng(node)
+  //     .then(function (dataUrl) {
+  //       const img = new Image();
+  //       Texlogo = dataUrl;
+  //       document.body.appendChild(img);
+  //     })
+  //     .catch(function (error) {
+  //       console.error("oops, something went wrong!", error);
+  //     });
+  // };
+
+  // return (
+  //   <div>
+  //     <textarea onChange={(e) => setText(e.target.value)} />
+  //     <button onClick={convertToImage}>Convert to Image</button>
+  //     <div id="text">{text}</div>
+  //   </div>
+  // );}
+
+
+// const convertToImage = () => {
+//   htmlToImage
+//     .toPng(textRef.current)
+//     .then((dataUrl) => {
+//       // do something with the dataUrl, such as displaying it in an img element
+//     })
+//     .catch((error) => {
+//       console.error("Error converting text to image", error);
+//     });
+// };

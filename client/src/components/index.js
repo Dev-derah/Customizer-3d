@@ -3,6 +3,7 @@ import ColorPicker from "./ColorPicker";
 import CustomButton from "./CustomButton";
 import FilePicker from "./FilePicker";
 import Tab from "./Tab";
+import TextLogo from "./TextLogo";
 
 export{
     AIPicker,
@@ -10,4 +11,5 @@ export{
     CustomButton,
     FilePicker,
     Tab,
+    TextLogo
 }

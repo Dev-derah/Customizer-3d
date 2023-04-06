@@ -1,5 +1,3 @@
-
-
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,600;1,900&display=swap");
 @import url("https://rsms.me/inter/inter.css");
 
@@ -56,9 +54,15 @@ html {
 .filepicker-container {
   @apply absolute left-full ml-3 glassmorphism p-3 w-[195px] h-[220px] flex flex-col rounded-md;
 }
-
 .filepicker-label {
   @apply border border-gray-300 py-1.5 px-2 rounded-md shadow-sm text-xs text-gray-700 focus:outline-none focus:ring-1 focus:ring-blue-500 focus:border-blue-500 cursor-pointer w-fit;
+}
+
+.textLogo-container {
+  @apply absolute left-full ml-3 glassmorphism p-3 w-[195px] h-[250px] flex flex-col rounded-md;
+}
+.textLogo-input {
+  @apply w-full bg-transparent text-sm border border-gray-300 p-2 outline-none;
 }
 
 .tab-btn {
@@ -89,7 +93,34 @@ input[type="file"] {
   border-radius: 6px !important;
 }
 
-.sketch-picker > div:nth-child(3) {
+.sketch-picker> div:nth-child(3){
   display: none !important;
+  object-fit: contain;
 }
 
+
+.text-color-picker{
+  width: 150px !important;
+  height: 100px;
+  text-align: center;
+  background-color: transparent !important; 
+  justify-content: center;
+  gap: 0.05rem 0.1rem;
+  border: none !important;
+} 
+
+.save-text-btn{
+  width: 100%;
+}
+
+.text-color-picker > div:nth-child(1),.text-color-picker > div:nth-child(2),.text-color-picker > div:nth-child(3){
+  display: none !important;
+  border: 0 0 0 0 !important;
+
+}
+.flexbox-fix{
+  border-top: 0 !important;
+}
+.textLogo-input:focus{
+  border: 2px solid #EFBD48;
+}
