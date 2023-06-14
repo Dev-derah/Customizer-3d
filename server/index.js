@@ -9,7 +9,7 @@ dotenv.config();
 const app = express();
 app.use(cors({
     credentials: true,
-    origin: "https://customizer-3d.vercel.app"
+    origin: "https://market-assets.fra1.cdn.digitaloceanspaces.com"
   }));
 app.use(express.json({ limit: "50mb" }));
 
