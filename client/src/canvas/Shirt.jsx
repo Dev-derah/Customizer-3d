@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { easing } from "maath";
 import { useSnapshot } from "valtio";
 import { useFrame } from "@react-three/fiber";
@@ -9,20 +9,28 @@ import state from "../store";
 const Shirt = () => {
   const snap = useSnapshot(state);
   const { nodes, materials } = useGLTF("/shirt_baked.glb");
-
+  const meshRef = useRef();
   const logoTexture = useTexture(snap.logoDecal);
   const fullTexture = useTexture(snap.fullDecal);
   const TextTexture = useTexture(snap.TextDecal);
 
-  useFrame((state, delta) =>
-    easing.dampC(materials.lambert1.color, snap.color, 0.25, delta)
-  );
+ useFrame((state, delta) => {
+   easing.dampC(materials.lambert1.color, snap.color, 0.25, delta);
+
+   // update the color to the material
+   meshRef.current.material.color = materials.lambert1.color;
+   meshRef.current.material.needsUpdate = true;
+
+   // Set aoMapIntensity to 0
+   materials.lambert1.aoMapIntensity = 0;
+ });
 
   const stateString = JSON.stringify(snap);
 
   return (
     <group key={stateString}>
       <mesh
+        ref={meshRef}
         castShadow
         geometry={nodes.T_Shirt_male.geometry}
         material={materials.lambert1}
